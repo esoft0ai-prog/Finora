@@ -1,4 +1,4 @@
-import {open, type NitroSQLiteConnection} from 'react-native-nitro-sqlite';
+import {open, type NitroSQLiteConnection, type QueryResultRow} from 'react-native-nitro-sqlite';
 import {MIGRATION_1, SCHEMA_VERSION} from './schema';
 
 let connection: NitroSQLiteConnection | null = null;
@@ -7,19 +7,19 @@ export const getDb = () => {
   return connection;
 };
 
-export const execute = async <T extends Record<string, unknown> = Record<string, unknown>>(sql:string, params:(string|number|boolean|null)[] = []) => {
+export const execute = async <T extends QueryResultRow = QueryResultRow>(sql:string, params:(string|number|boolean|null)[] = []) => {
   const result = await getDb().executeAsync<T>(sql, params);
   return result;
 };
 
-export const rows = async <T extends Record<string, unknown>>(sql:string, params:(string|number|boolean|null)[] = []):Promise<T[]> => {
+export const rows = async <T extends QueryResultRow>(sql:string, params:(string|number|boolean|null)[] = []):Promise<T[]> => {
   const result = await execute<T>(sql, params);
   return (result.results ?? []) as T[];
 };
 
-export const one = async <T extends Record<string, unknown>>(sql:string, params:(string|number|boolean|null)[] = []):Promise<T|undefined> => (await rows<T>(sql,params))[0];
+export const one = async <T extends QueryResultRow>(sql:string, params:(string|number|boolean|null)[] = []):Promise<T|undefined> => (await rows<T>(sql,params))[0];
 
-export const transaction = async (fn:(tx:{executeAsync:<T extends Record<string,unknown>>(sql:string,params?:(string|number|boolean|null)[])=>Promise<any>})=>Promise<void>) => {
+export const transaction = async (fn:(tx:{executeAsync:<T extends QueryResultRow>(sql:string,params?:(string|number|boolean|null)[])=>Promise<any>})=>Promise<void>) => {
   await getDb().transaction(async tx => { await fn(tx as any); });
 };
 
