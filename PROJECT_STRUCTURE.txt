@@ -1,0 +1,158 @@
+Finora/
+├── .github
+│   └── workflows
+│       └── android.yml
+├── __tests__
+│   ├── backupSecurity.test.ts
+│   ├── budgetCalculations.test.ts
+│   ├── budgetGoalServices.test.ts
+│   ├── dateCalculations.test.ts
+│   ├── debtService.test.ts
+│   ├── financialCalculations.test.ts
+│   ├── healthScore.test.ts
+│   ├── notificationService.test.ts
+│   ├── recurringTransactions.test.ts
+│   ├── savingsCalculations.test.ts
+│   └── transactionService.test.ts
+├── android
+│   ├── app
+│   │   ├── src
+│   │   │   ├── debug
+│   │   │   │   └── AndroidManifest.xml
+│   │   │   ├── main
+│   │   │   │   ├── java
+│   │   │   │   │   └── com
+│   │   │   │   │       └── finora
+│   │   │   │   │           ├── MainActivity.kt
+│   │   │   │   │           └── MainApplication.kt
+│   │   │   │   ├── res
+│   │   │   │   │   ├── drawable
+│   │   │   │   │   │   ├── ic_launcher_background.xml
+│   │   │   │   │   │   ├── ic_launcher_foreground.xml
+│   │   │   │   │   │   └── launch_screen.xml
+│   │   │   │   │   ├── mipmap-anydpi
+│   │   │   │   │   │   ├── ic_launcher.xml
+│   │   │   │   │   │   └── ic_launcher_round.xml
+│   │   │   │   │   ├── mipmap-anydpi-v26
+│   │   │   │   │   │   ├── ic_launcher.xml
+│   │   │   │   │   │   └── ic_launcher_round.xml
+│   │   │   │   │   ├── values
+│   │   │   │   │   │   ├── colors.xml
+│   │   │   │   │   │   ├── strings.xml
+│   │   │   │   │   │   └── styles.xml
+│   │   │   │   │   └── values-v31
+│   │   │   │   │       └── styles.xml
+│   │   │   │   └── AndroidManifest.xml
+│   │   │   └── release
+│   │   │       └── AndroidManifest.xml
+│   │   ├── build.gradle
+│   │   ├── debug.keystore
+│   │   └── proguard-rules.pro
+│   ├── gradle
+│   │   └── wrapper
+│   │       └── gradle-wrapper.properties
+│   ├── build.gradle
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   └── settings.gradle
+├── docs
+│   └── PRODUCT_SPEC.txt
+├── scripts
+│   └── selftest.mjs
+├── src
+│   ├── calculations
+│   │   └── finance.ts
+│   ├── components
+│   │   ├── Card.tsx
+│   │   ├── ChoiceChips.tsx
+│   │   ├── DonutChart.tsx
+│   │   ├── EmptyState.tsx
+│   │   ├── FinButton.tsx
+│   │   ├── FormField.tsx
+│   │   ├── LineChart.tsx
+│   │   ├── MetricCard.tsx
+│   │   ├── MiniBars.tsx
+│   │   ├── ProgressBar.tsx
+│   │   ├── Screen.tsx
+│   │   └── Typography.tsx
+│   ├── database
+│   │   ├── db.ts
+│   │   ├── preferences.ts
+│   │   ├── repositories.ts
+│   │   ├── schema.ts
+│   │   └── seed.ts
+│   ├── navigation
+│   │   ├── AppNavigator.tsx
+│   │   └── types.ts
+│   ├── screens
+│   │   ├── AccountsScreen.tsx
+│   │   ├── AppLockScreen.tsx
+│   │   ├── AssistantScreen.tsx
+│   │   ├── BackupRestoreScreen.tsx
+│   │   ├── BudgetEditorScreen.tsx
+│   │   ├── BudgetsScreen.tsx
+│   │   ├── CalendarScreen.tsx
+│   │   ├── CategoriesScreen.tsx
+│   │   ├── DashboardScreen.tsx
+│   │   ├── DebtDetailScreen.tsx
+│   │   ├── DebtEditorScreen.tsx
+│   │   ├── DebtsScreen.tsx
+│   │   ├── GoalEditorScreen.tsx
+│   │   ├── GoalsScreen.tsx
+│   │   ├── MoreScreen.tsx
+│   │   ├── NotificationHistoryScreen.tsx
+│   │   ├── OnboardingScreen.tsx
+│   │   ├── RecurringEditorScreen.tsx
+│   │   ├── RecurringScreen.tsx
+│   │   ├── ReminderEditorScreen.tsx
+│   │   ├── RemindersScreen.tsx
+│   │   ├── ReportsScreen.tsx
+│   │   ├── SearchScreen.tsx
+│   │   ├── SettingsScreen.tsx
+│   │   ├── TransactionEditorScreen.tsx
+│   │   └── TransactionsScreen.tsx
+│   ├── services
+│   │   ├── accountService.ts
+│   │   ├── analyticsService.ts
+│   │   ├── assistantService.ts
+│   │   ├── auditService.ts
+│   │   ├── backupService.ts
+│   │   ├── budgetService.ts
+│   │   ├── debtService.ts
+│   │   ├── demoDataService.ts
+│   │   ├── goalService.ts
+│   │   ├── notificationService.ts
+│   │   ├── recurringService.ts
+│   │   ├── searchService.ts
+│   │   ├── securityService.ts
+│   │   └── transactionService.ts
+│   ├── state
+│   │   └── useAppStore.ts
+│   ├── theme
+│   │   └── theme.ts
+│   ├── types
+│   │   └── domain.ts
+│   └── utils
+│       ├── currency.ts
+│       ├── date.ts
+│       ├── id.ts
+│       └── validation.ts
+├── .gitignore
+├── app.json
+├── App.tsx
+├── ARCHITECTURE.md
+├── babel.config.js
+├── BUILD_ANDROID.md
+├── DATABASE.md
+├── index.js
+├── jest.config.js
+├── jest.setup.js
+├── KNOWN_LIMITATIONS.md
+├── metro.config.js
+├── package.json
+├── QA_REPORT.md
+├── README.md
+├── SECURITY.md
+├── TESTING.md
+└── tsconfig.json
