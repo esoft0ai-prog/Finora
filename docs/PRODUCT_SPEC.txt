@@ -1,0 +1,1181 @@
+You are acting as a senior React Native architect, Android engineer, UI/UX designer, database engineer, QA engineer, and product engineer.
+
+I want you to BUILD, not merely describe, a complete production-quality React Native Android application called:
+
+"Finora"
+
+Subtitle:
+"Personal Finance & Debt Intelligence"
+
+The application must be a serious, practical, extensible personal finance application designed primarily for Nigerian users but architected so it can later support other currencies and countries.
+
+IMPORTANT:
+This is NOT a starter project.
+Do NOT create a basic demo, tutorial, mockup, prototype, or partially implemented application.
+
+I want a complete working application that I can build into an APK, install directly on Android phones, transfer to another Android phone, or host the APK somewhere without Google Play Store.
+
+==================================================
+1. CORE REQUIREMENT
+==================================================
+
+The application MUST work 100% offline after installation.
+
+There must be NO requirement for:
+
+- Internet connection
+- User account
+- Backend server
+- Firebase
+- Supabase
+- Cloud database
+- REST API
+- External API
+- OpenAI API
+- Claude API
+- Google login
+- Facebook login
+- Any paid service
+- Any mandatory cloud service
+
+All important functionality must work locally on the Android device.
+
+If the phone has no SIM card, no Wi-Fi and no mobile data, the application must still allow the user to:
+
+- Add income
+- Add expenses
+- Add debts
+- Add loans
+- Record repayments
+- Create financial goals
+- Create reminders
+- Schedule notifications
+- View dashboards
+- View analytics
+- Calculate financial metrics
+- Search transactions
+- Edit records
+- Delete records
+- Export data
+- Import backup data
+- Generate reports
+- Use the financial assistant
+- Use all core features
+
+The application should NEVER display "No internet connection" as a reason for core functionality failing.
+
+==================================================
+2. TECHNOLOGY
+==================================================
+
+Use React Native.
+
+Prefer a modern, maintainable React Native architecture suitable for Android APK production.
+
+Use TypeScript.
+
+Use a reliable local database such as SQLite.
+
+Use a robust state management architecture.
+
+Use local storage only for simple preferences and SQLite for structured financial data.
+
+Use Android-native local notifications.
+
+For notifications, use a reliable React Native notification library capable of scheduling local notifications without a backend.
+
+Do NOT depend on Firebase Cloud Messaging for financial reminders.
+
+All reminders must be generated and scheduled locally on the device.
+
+The application must be capable of building a standalone Android APK.
+
+==================================================
+3. BUILD REQUIREMENT
+==================================================
+
+The project must be buildable into an APK.
+
+Provide:
+
+- Debug APK instructions
+- Release APK instructions
+- Gradle configuration
+- Android permissions
+- App icon configuration
+- Splash screen configuration
+- Release build configuration
+- Versioning
+- Package/application ID
+- ProGuard/R8 considerations where appropriate
+
+The final project should support a command equivalent to:
+
+./gradlew assembleRelease
+
+or the appropriate React Native Android release command.
+
+The final output should produce a transferable APK.
+
+Explain exactly where the APK will be generated.
+
+Do NOT make Google Play Store publishing a requirement.
+
+The application should work when the APK is copied to another Android phone and installed manually.
+
+==================================================
+4. FUTURISTIC UI/UX
+==================================================
+
+Create a premium futuristic financial interface.
+
+The application should feel like a modern fintech product, not a school project.
+
+Design language:
+
+- Futuristic
+- Clean
+- Premium
+- Minimal
+- Professional
+- Modern
+- Mobile-first
+- Smooth
+- Highly readable
+- Accessible
+
+Use:
+
+- Dark mode as the primary visual experience
+- Light mode as an alternative
+- Glassmorphism-inspired cards where appropriate
+- Subtle gradients
+- Soft shadows
+- Modern typography
+- Financial data visualizations
+- Animated counters
+- Smooth transitions
+- Progress rings
+- Financial health indicators
+- Modern bottom navigation
+- Floating action button where appropriate
+- Interactive cards
+- Empty states
+- Skeleton/loading states
+
+Do NOT overuse animations.
+
+The interface must remain fast on low-end and mid-range Android devices.
+
+Do NOT use huge decorative graphics that make the app slow.
+
+Make the UI look like a serious product that could eventually be published commercially.
+
+==================================================
+5. APPLICATION STRUCTURE
+==================================================
+
+Create these major sections:
+
+1. Dashboard
+2. Transactions
+3. Budgets
+4. Debts & Loans
+5. Savings Goals
+6. Financial Calendar
+7. Reports & Analytics
+8. Financial Assistant
+9. Notifications & Reminders
+10. Settings
+11. Backup & Restore
+
+Use bottom navigation for the most important sections.
+
+==================================================
+6. DASHBOARD
+==================================================
+
+Create a highly useful financial dashboard.
+
+Show:
+
+- Total balance
+- Total income
+- Total expenses
+- Net cash flow
+- Total debt
+- Monthly debt obligation
+- Savings
+- Budget remaining
+- Upcoming payments
+- Upcoming reminders
+- Financial health score
+
+Include selectable periods:
+
+- Today
+- This week
+- This month
+- Last month
+- Last 3 months
+- Last 6 months
+- This year
+- Custom period
+
+Display charts for:
+
+- Income
+- Expenses
+- Cash flow
+- Spending categories
+- Debt reduction
+- Savings progress
+
+Allow the user to tap dashboard cards and navigate to detailed information.
+
+==================================================
+7. TRANSACTION SYSTEM
+==================================================
+
+Create a complete transaction management system.
+
+Transaction types:
+
+- Income
+- Expense
+- Transfer
+- Debt repayment
+- Loan received
+- Savings deposit
+- Savings withdrawal
+
+Each transaction should support:
+
+- Amount
+- Currency
+- Date
+- Time
+- Category
+- Description
+- Account
+- Payment method
+- Notes
+- Optional attachment/reference
+- Recurring status
+- Tags
+
+Default currency should be:
+
+NGN / ₦
+
+But do NOT hard-code the entire application around Nigeria.
+
+Allow currency configuration.
+
+Create categories such as:
+
+Income:
+- Salary
+- Business
+- Freelance
+- Investment
+- Gift
+- Other
+
+Expenses:
+- Food
+- Transport
+- Rent
+- Electricity
+- Internet
+- Education
+- Health
+- Family
+- Entertainment
+- Shopping
+- Debt repayment
+- Business
+- Other
+
+Allow users to create, edit and delete categories.
+
+==================================================
+8. MULTIPLE ACCOUNTS / WALLET SYSTEM
+==================================================
+
+Allow users to create financial accounts such as:
+
+- Cash
+- Bank account
+- Mobile wallet
+- Savings
+- Business account
+- Other
+
+Each account must have:
+
+- Name
+- Opening balance
+- Current balance
+- Currency
+- Account type
+
+Transfers between accounts must be supported.
+
+Example:
+
+Cash → Bank
+
+Bank → Savings
+
+Business → Personal
+
+Ensure transfers do not incorrectly appear as income or expenses.
+
+==================================================
+9. BUDGET SYSTEM
+==================================================
+
+Build a serious budgeting module.
+
+Users can create:
+
+- Monthly budgets
+- Weekly budgets
+- Category budgets
+- Custom budgets
+
+Example:
+
+Food:
+₦50,000
+
+Transport:
+₦30,000
+
+Internet:
+₦15,000
+
+The system should calculate:
+
+- Amount spent
+- Amount remaining
+- Percentage used
+- Days remaining
+- Spending pace
+
+If the user's spending pace suggests they may exceed the budget, show an early warning.
+
+Example:
+
+"At your current spending rate, your Food budget may be exceeded in approximately 6 days."
+
+This must be calculated locally.
+
+==================================================
+10. DEBT & LOAN MANAGEMENT
+==================================================
+
+This is one of the most important features.
+
+Create a powerful debt management module.
+
+Each debt should support:
+
+- Lender name
+- Debt type
+- Principal amount
+- Current balance
+- Interest rate
+- Interest type
+- Payment frequency
+- Minimum payment
+- Due date
+- Start date
+- End date
+- Penalty
+- Notes
+- Status
+
+Debt types:
+
+- Personal loan
+- Bank loan
+- Loan app
+- Family debt
+- Friend debt
+- Business debt
+- Credit purchase
+- Other
+
+Support:
+
+- Fixed interest
+- Percentage interest
+- Simple interest
+- User-defined repayment schedules
+
+The application must calculate:
+
+- Outstanding balance
+- Total amount payable
+- Estimated interest
+- Next payment
+- Days until payment
+- Number of payments remaining
+- Debt-to-income ratio
+- Monthly debt obligation
+- Projected payoff date
+
+Every repayment must be recorded.
+
+The debt balance must update automatically.
+
+==================================================
+11. DEBT REMINDER SYSTEM
+==================================================
+
+Create strong local reminders.
+
+For every debt:
+
+- Payment due reminder
+- Upcoming payment reminder
+- Overdue reminder
+- Final payment reminder
+
+Allow configurable reminder timing:
+
+- 30 days before
+- 14 days before
+- 7 days before
+- 3 days before
+- 1 day before
+- On due date
+- Custom
+
+Allow multiple reminders.
+
+Example:
+
+"Loan payment reminder"
+
+"₦25,000 payment is due tomorrow."
+
+If overdue:
+
+"Payment overdue by 3 days."
+
+Notifications must work without internet.
+
+==================================================
+12. SAVINGS GOALS
+==================================================
+
+Users should be able to create goals.
+
+Example:
+
+Goal:
+New Laptop
+
+Target:
+₦800,000
+
+Current:
+₦250,000
+
+Deadline:
+December 20, 2026
+
+The system calculates:
+
+- Percentage completed
+- Remaining amount
+- Required weekly saving
+- Required monthly saving
+- Deadline progress
+- Whether current saving rate is sufficient
+
+Provide visual progress.
+
+==================================================
+13. FINANCIAL CALENDAR
+==================================================
+
+Create a calendar showing:
+
+- Debt payments
+- Bills
+- Income dates
+- Savings targets
+- Budgets
+- Custom reminders
+- Recurring transactions
+
+Allow users to tap a date and see all financial events.
+
+Provide:
+
+- Month view
+- Upcoming list
+- Overdue section
+
+==================================================
+14. RECURRING TRANSACTIONS
+==================================================
+
+Support recurring:
+
+- Income
+- Expenses
+- Bills
+- Debt payments
+- Savings
+
+Frequency:
+
+- Daily
+- Weekly
+- Biweekly
+- Monthly
+- Quarterly
+- Yearly
+- Custom
+
+The system should automatically create future occurrences locally.
+
+==================================================
+15. FINANCIAL HEALTH SCORE
+==================================================
+
+Create a transparent financial health scoring system.
+
+Do NOT make it a meaningless random score.
+
+Calculate the score from explainable components such as:
+
+- Savings rate
+- Debt-to-income ratio
+- Emergency savings
+- Budget adherence
+- Payment consistency
+- Cash-flow stability
+- Debt reduction progress
+
+Display:
+
+Financial Health Score: 72/100
+
+Then explain:
+
+Savings: 16/20
+Debt burden: 13/20
+Budget discipline: 17/20
+Cash flow: 14/20
+Payment consistency: 12/20
+
+The user must understand why the score changed.
+
+==================================================
+16. FINANCIAL ASSISTANT
+==================================================
+
+Build a LOCAL financial assistant.
+
+It must NOT require an AI API.
+
+It should use deterministic calculations, rules, templates and the user's locally stored financial data.
+
+Examples:
+
+User:
+"Can I afford a ₦100,000 phone?"
+
+The assistant should calculate based on:
+
+- Current balance
+- Upcoming expenses
+- Debt obligations
+- Budget
+- Savings goals
+- Recent cash flow
+
+Then explain the calculation.
+
+Other supported questions:
+
+"How much did I spend on food this month?"
+
+"How much do I owe?"
+
+"When is my next debt payment?"
+
+"How much should I save each month for my goal?"
+
+"What category consumes most of my money?"
+
+"How much did I earn this month?"
+
+"How much did I spend last month?"
+
+"How much debt did I clear this year?"
+
+"Show me my biggest expenses."
+
+Implement intent detection locally.
+
+Do NOT pretend this is ChatGPT.
+
+Make it a useful rule-based financial intelligence assistant.
+
+Architect it so an AI API can optionally be added in the future.
+
+==================================================
+17. REPORTS & ANALYTICS
+==================================================
+
+Create professional financial reports.
+
+Include:
+
+- Income report
+- Expense report
+- Cash-flow report
+- Debt report
+- Budget report
+- Savings report
+- Category report
+- Monthly comparison
+- Yearly comparison
+
+Charts should include:
+
+- Pie/donut charts
+- Bar charts
+- Line charts
+- Progress charts
+
+Allow filtering by date, category and account.
+
+==================================================
+18. SEARCH
+==================================================
+
+Implement powerful local search.
+
+Search:
+
+- Transactions
+- Debts
+- Goals
+- Accounts
+- Categories
+- Notes
+
+Support filters.
+
+Everything must work offline.
+
+==================================================
+19. NOTIFICATION ENGINE
+==================================================
+
+This is a critical feature.
+
+Build a robust local notification system.
+
+Notifications must survive:
+
+- Application closing
+- Phone restart
+- App being removed from recent apps
+
+Where Android restrictions require special handling, implement the correct Android configuration.
+
+Handle:
+
+- Notification channels
+- Notification permissions
+- Scheduled notifications
+- Recurring notifications
+- Due-date notifications
+- Overdue notifications
+- Budget warnings
+- Savings reminders
+- Custom reminders
+
+Create notification settings where users can enable/disable notification categories.
+
+Add a notification history screen.
+
+==================================================
+20. BACKUP & RESTORE
+==================================================
+
+Because the app is offline-first, backup is extremely important.
+
+Allow:
+
+EXPORT:
+
+- Complete JSON backup
+- CSV transaction export
+- Human-readable financial report
+
+Allow the user to save/share the backup using Android's file picker/share sheet.
+
+IMPORT:
+
+- Restore complete backup
+- Validate backup
+- Detect malformed data
+- Show backup date
+- Show record counts before restoration
+- Confirm before overwriting
+
+Do NOT silently overwrite existing financial data.
+
+Support:
+
+- Replace existing data
+- Merge backup with existing data
+
+Handle duplicate records intelligently.
+
+==================================================
+21. DATA SECURITY
+==================================================
+
+Treat financial data as sensitive.
+
+Implement:
+
+- App lock
+- PIN
+- Biometric authentication where available
+- Auto-lock timeout
+- Secure storage for sensitive preferences
+- Database protection where practical
+- No financial data sent to external servers
+- No analytics service
+- No advertising SDK
+- No unnecessary permissions
+
+Clearly explain the local security architecture in the documentation.
+
+==================================================
+22. PRIVACY
+==================================================
+
+The app should be privacy-first.
+
+Do not collect:
+
+- Location
+- Contacts
+- SMS
+- Call logs
+- Microphone
+- Camera
+
+unless a feature explicitly requires it.
+
+No account should be required.
+
+No personal financial information should leave the device.
+
+==================================================
+23. LOW-END ANDROID SUPPORT
+==================================================
+
+Optimize for real Android devices.
+
+Assume some users may have:
+
+- 2GB RAM
+- 3GB RAM
+- 4GB RAM
+- Limited storage
+- Older Android versions
+
+Keep the application lightweight.
+
+Avoid unnecessary libraries.
+
+Avoid huge assets.
+
+Avoid memory-heavy animations.
+
+Use efficient database queries.
+
+==================================================
+24. ERROR HANDLING
+==================================================
+
+The application must gracefully handle:
+
+- Invalid amounts
+- Negative values where not allowed
+- Empty fields
+- Invalid dates
+- Duplicate records
+- Corrupt backup
+- Failed import
+- Database errors
+- Notification permission denied
+- Device reboot
+- Missing notification permissions
+- Invalid debt calculations
+
+Never crash because of normal user input.
+
+==================================================
+25. DATA VALIDATION
+==================================================
+
+Implement proper validation throughout.
+
+Examples:
+
+Amount must be valid.
+
+Due date cannot be invalid.
+
+Debt balance cannot become negative unless explicitly supported.
+
+Savings target must be greater than zero.
+
+Budget must have valid limits.
+
+Prevent accidental duplicate transactions where appropriate.
+
+==================================================
+26. ACCESSIBILITY
+==================================================
+
+Support:
+
+- Large text
+- Good contrast
+- Touch-friendly buttons
+- Screen-reader-friendly labels
+- Clear error messages
+
+Do not make the futuristic design compromise usability.
+
+==================================================
+27. ONBOARDING
+==================================================
+
+Create a short professional onboarding experience.
+
+Ask:
+
+- Preferred currency
+- Monthly income
+- Starting balance
+- Main financial goal
+- Existing debts
+- Notification preference
+- App lock preference
+
+Allow users to skip optional steps.
+
+Do not force account registration.
+
+==================================================
+28. SAMPLE DATA
+==================================================
+
+Create an optional demo-data generator.
+
+The user can choose:
+
+"Load sample data"
+
+It should generate realistic example:
+
+- Income
+- Expenses
+- Debts
+- Savings goals
+- Budgets
+- Accounts
+
+The user must be able to delete all demo data.
+
+Do not mix demo data with real data without clearly identifying it.
+
+==================================================
+29. ARCHITECTURE
+==================================================
+
+Use a clean modular architecture.
+
+Separate:
+
+- UI
+- Components
+- Screens
+- Navigation
+- Database
+- Models
+- Services
+- Notification engine
+- Financial calculations
+- Backup/restore
+- Security
+- State management
+- Utilities
+
+Do not put the entire application in App.tsx.
+
+Create reusable components.
+
+Create reusable financial calculation functions.
+
+Use TypeScript types/interfaces throughout.
+
+==================================================
+30. DATABASE DESIGN
+==================================================
+
+Design a normalized SQLite database.
+
+At minimum consider tables for:
+
+users/preferences
+accounts
+transactions
+categories
+budgets
+budget_categories
+debts
+debt_payments
+savings_goals
+recurring_transactions
+reminders
+notifications
+financial_events
+tags
+transaction_tags
+audit_logs
+
+Use proper primary keys, foreign keys, indexes and timestamps.
+
+Use database migrations.
+
+==================================================
+31. FUTURE EXTENSIBILITY
+==================================================
+
+Architect the application so these can be added later without rebuilding everything:
+
+- Cloud synchronization
+- Optional user accounts
+- Bank statement import
+- Open banking integrations
+- AI assistant
+- Multi-device synchronization
+- Family finance
+- Business finance
+- Investment tracking
+- Cryptocurrency tracking
+- Financial education
+- Web dashboard
+
+But DO NOT implement cloud functionality now.
+
+The current application must remain completely offline.
+
+==================================================
+32. TESTING
+==================================================
+
+Do serious testing.
+
+Create unit tests for:
+
+- Financial calculations
+- Debt calculations
+- Budget calculations
+- Savings calculations
+- Financial health score
+- Recurring transactions
+- Date calculations
+
+Test:
+
+- Add transaction
+- Edit transaction
+- Delete transaction
+- Add debt
+- Record repayment
+- Create budget
+- Create savings goal
+- Schedule notification
+- Restart application
+- Restart phone
+- Export backup
+- Import backup
+- Merge backup
+- App lock
+
+Fix bugs discovered during testing.
+
+Do not simply tell me what tests should exist.
+
+Actually create the test files.
+
+==================================================
+33. SECURITY TESTING
+==================================================
+
+Review the application for:
+
+- Insecure storage
+- Hardcoded secrets
+- Unnecessary permissions
+- Data leakage
+- Weak validation
+- SQL injection risks
+- Unsafe file handling
+- Backup manipulation
+- Authentication bypass
+
+Fix issues you find.
+
+==================================================
+34. FINAL QUALITY CONTROL
+==================================================
+
+Before considering the project complete:
+
+1. Inspect the entire codebase.
+2. Identify incomplete features.
+3. Identify placeholder screens.
+4. Identify TODOs.
+5. Identify broken imports.
+6. Identify unused dependencies.
+7. Identify TypeScript errors.
+8. Identify navigation problems.
+9. Identify database problems.
+10. Identify notification problems.
+11. Identify Android build problems.
+12. Fix them.
+13. Run tests.
+14. Build the Android APK.
+15. Verify that the release build works.
+16. Document the build process.
+
+Do not say "this can be implemented later" for any core feature.
+
+==================================================
+35. PROJECT DOCUMENTATION
+==================================================
+
+Create:
+
+README.md
+
+Include:
+
+- Project overview
+- Features
+- Architecture
+- Technology stack
+- Installation
+- Development setup
+- Android build instructions
+- Release APK instructions
+- APK location
+- Database architecture
+- Backup/restore
+- Notification system
+- Security
+- Privacy
+- Testing
+- Troubleshooting
+- Future roadmap
+
+Also create:
+
+ARCHITECTURE.md
+DATABASE.md
+SECURITY.md
+TESTING.md
+BUILD_ANDROID.md
+
+==================================================
+36. APK DISTRIBUTION
+==================================================
+
+The application must NOT depend on Google Play Store.
+
+Prepare it so the generated APK can be:
+
+- Copied to another phone
+- Sent through WhatsApp/Telegram
+- Uploaded to Google Drive
+- Uploaded to GitHub Releases
+- Uploaded to a website
+- Shared directly as a file
+
+Explain Android's installation requirements for sideloaded APKs.
+
+Do not implement Play Store-specific functionality.
+
+==================================================
+37. IMPORTANT DEVELOPMENT RULE
+==================================================
+
+Do not stop after creating the architecture.
+
+Do not give me only code snippets.
+
+Actually create the complete project.
+
+When one part is finished, inspect how it integrates with the rest of the application.
+
+If you encounter a dependency or implementation issue, choose a stable alternative and continue.
+
+Prioritize:
+
+1. Functionality
+2. Offline reliability
+3. Data integrity
+4. Security
+5. Maintainability
+6. Performance
+7. UI polish
+
+==================================================
+38. FINAL DELIVERABLE
+==================================================
+
+At the end, provide:
+
+1. Complete source code
+2. Complete project structure
+3. Database schema
+4. Tests
+5. Documentation
+6. Android configuration
+7. Debug build
+8. Release APK
+9. Exact APK path
+10. Build instructions
+11. Installation instructions
+12. Known limitations, if any
+13. Future extension points
+
+Most importantly:
+
+BUILD THE ACTUAL APPLICATION.
+
+Do not merely explain how I could build it.
+
+Start by inspecting the environment and selecting the most reliable React Native architecture for a standalone offline Android application.
+
+Then implement the project systematically from foundation to production-ready APK.

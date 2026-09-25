@@ -1,0 +1,3 @@
+import React from 'react';import {ScrollView,StyleSheet,View,type ViewStyle} from 'react-native';import {SafeAreaView} from 'react-native-safe-area-context';import {usePalette} from '../theme/theme';
+export const Screen=({children,scroll=true,style}:{children:React.ReactNode;scroll?:boolean;style?:ViewStyle})=>{const p=usePalette();const body=<View style={[styles.body,style]}>{children}</View>;return <SafeAreaView edges={['left','right','bottom']} style={[styles.safe,{backgroundColor:p.bg}]}>{scroll?<ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.scroll}>{body}</ScrollView>:body}</SafeAreaView>};
+const styles=StyleSheet.create({safe:{flex:1},scroll:{flexGrow:1},body:{flex:1,padding:16,gap:14}});

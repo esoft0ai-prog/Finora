@@ -1,0 +1,10 @@
+import * as Keychain from 'react-native-keychain';
+const PIN_SERVICE='com.finora.pin'; const BIO_SERVICE='com.finora.biometric';
+export const setPin=async(pin:string)=>{if(!/^\d{4,8}$/.test(pin))throw new Error('PIN must contain 4 to 8 digits.');await Keychain.setGenericPassword('finora',pin,{service:PIN_SERVICE,accessible:Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY});};
+export const verifyPin=async(pin:string)=>{const c=await Keychain.getGenericPassword({service:PIN_SERVICE});return Boolean(c&&c.password===pin);};
+export const hasPin=async()=>Boolean(await Keychain.hasGenericPassword({service:PIN_SERVICE}));
+export const clearPin=async()=>Keychain.resetGenericPassword({service:PIN_SERVICE});
+export const getBiometryType=()=>Keychain.getSupportedBiometryType();
+export const enableBiometricUnlock=async()=>{await Keychain.setGenericPassword('finora','unlock',{service:BIO_SERVICE,accessControl:Keychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET_OR_DEVICE_PASSCODE,accessible:Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY});};
+export const biometricUnlock=async()=>Boolean(await Keychain.getGenericPassword({service:BIO_SERVICE,authenticationPrompt:{title:'Unlock Finora',subtitle:'Authenticate to access your financial data',cancel:'Use PIN'}}));
+export const disableBiometricUnlock=()=>Keychain.resetGenericPassword({service:BIO_SERVICE});

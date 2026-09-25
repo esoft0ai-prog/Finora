@@ -1,0 +1,3 @@
+import React from 'react';import {TextInput,View,StyleSheet,type TextInputProps} from 'react-native';import {Label,Txt} from './Typography';import {usePalette} from '../theme/theme';
+export const FormField=({label,error,...props}:TextInputProps&{label:string;error?:string})=>{const p=usePalette();return <View style={styles.wrap}><Label>{label}</Label><TextInput placeholderTextColor={p.muted} {...props} style={[styles.input,{color:p.text,backgroundColor:p.surface2,borderColor:error?p.danger:p.border},props.style]}/>{error?<Txt style={{color:p.danger,fontSize:12}}>{error}</Txt>:null}</View>};
+const styles=StyleSheet.create({wrap:{gap:6},input:{minHeight:48,borderWidth:1,borderRadius:14,paddingHorizontal:14,fontSize:16}});

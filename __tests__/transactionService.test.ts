@@ -1,0 +1,8 @@
+const execute=jest.fn(async()=>({})),one=jest.fn(async()=>undefined),rows=jest.fn(async()=>[]);
+jest.mock('../src/database/db',()=>({execute,one,rows,transaction:jest.fn()}));
+const recalculateAccountBalances=jest.fn(async()=>{});jest.mock('../src/services/accountService',()=>({recalculateAccountBalances}));
+const audit=jest.fn(async()=>{});jest.mock('../src/services/auditService',()=>({audit}));
+const evaluateBudgetWarnings=jest.fn(async()=>{});jest.mock('../src/services/budgetService',()=>({evaluateBudgetWarnings}));
+import {createTransaction,updateTransaction,deleteTransaction} from '../src/services/transactionService';
+const base={type:'expense' as const,amount:1500,currency:'NGN',date:'2026-09-25',time:'12:00',description:'Lunch',accountId:'acc-1'};
+describe('transaction service',()=>{beforeEach(()=>jest.clearAllMocks());test('creates and recalculates',async()=>{await createTransaction(base);expect(execute).toHaveBeenCalledWith(expect.stringContaining('INSERT INTO transactions'),expect.any(Array));expect(recalculateAccountBalances).toHaveBeenCalled();expect(evaluateBudgetWarnings).toHaveBeenCalled();});test('edits and recalculates',async()=>{await updateTransaction('tx-1',{...base,amount:1800});expect(execute).toHaveBeenCalledWith(expect.stringContaining('UPDATE transactions'),expect.any(Array));expect(recalculateAccountBalances).toHaveBeenCalled();});test('deletes and recalculates',async()=>{await deleteTransaction('tx-1');expect(execute).toHaveBeenCalledWith('DELETE FROM transactions WHERE id=?',['tx-1']);expect(recalculateAccountBalances).toHaveBeenCalled();});test('rejects invalid transfer',async()=>{await expect(createTransaction({...base,type:'transfer',toAccountId:'acc-1'})).rejects.toThrow(/different destination/i);});});

@@ -1,0 +1,4 @@
+import React from 'react';import {Text,StyleSheet,type TextProps} from 'react-native';import {usePalette} from '../theme/theme';
+export const Txt=({children,muted=false,style,...props}:TextProps&{children?:React.ReactNode;muted?:boolean})=>{const p=usePalette();return <Text {...props} style={[styles.base,{color:muted?p.muted:p.text},style]}>{children}</Text>};
+export const H1=(p:any)=><Txt {...p} style={[styles.h1,p.style]}/>;export const H2=(p:any)=><Txt {...p} style={[styles.h2,p.style]}/>;export const Label=(p:any)=><Txt {...p} style={[styles.label,p.style]}/>;
+const styles=StyleSheet.create({base:{fontSize:15,lineHeight:21},h1:{fontSize:28,lineHeight:34,fontWeight:'800'},h2:{fontSize:19,lineHeight:25,fontWeight:'700'},label:{fontSize:12,lineHeight:16,fontWeight:'700',textTransform:'uppercase',letterSpacing:.7}});
