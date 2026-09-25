@@ -1,8 +1,8 @@
 const mockExecute=jest.fn(async()=>({})),mockOne=jest.fn(async()=>undefined),mockRows=jest.fn(async()=>[]);
-jest.mock('../src/database/db',()=>({mockExecute,mockOne,mockRows,transaction:jest.fn()}));
-const mockRecalculateAccountBalances=jest.fn(async()=>{});jest.mock('../src/services/accountService',()=>({mockRecalculateAccountBalances}));
-const mockAudit=jest.fn(async()=>{});jest.mock('../src/services/auditService',()=>({mockAudit}));
-const mockEvaluateBudgetWarnings=jest.fn(async()=>{});jest.mock('../src/services/budgetService',()=>({mockEvaluateBudgetWarnings}));
+jest.mock('../src/database/db',()=>({execute:mockExecute,one:mockOne,rows:mockRows,transaction:jest.fn()}));
+const mockRecalculateAccountBalances=jest.fn(async()=>{});jest.mock('../src/services/accountService',()=>({recalculateAccountBalances:mockRecalculateAccountBalances}));
+const mockAudit=jest.fn(async()=>{});jest.mock('../src/services/auditService',()=>({audit:mockAudit}));
+const mockEvaluateBudgetWarnings=jest.fn(async()=>{});jest.mock('../src/services/budgetService',()=>({evaluateBudgetWarnings:mockEvaluateBudgetWarnings}));
 import {createTransaction,updateTransaction,deleteTransaction} from '../src/services/transactionService';
 const base={type:'expense' as const,amount:1500,currency:'NGN',date:'2026-09-25',time:'12:00',description:'Lunch',accountId:'acc-1'};
 describe('transaction service',()=>{beforeEach(()=>jest.clearAllMocks());test('creates and recalculates',async()=>{await createTransaction(base);expect(mockExecute).toHaveBeenCalledWith(expect.stringContaining('INSERT INTO transactions'),expect.any(Array));expect(mockRecalculateAccountBalances).toHaveBeenCalled();expect(mockEvaluateBudgetWarnings).toHaveBeenCalled();});test('edits and recalculates',async()=>{await updateTransaction('tx-1',{...base,amount:1800});expect(mockExecute).toHaveBeenCalledWith(expect.stringContaining('UPDATE transactions'),expect.any(Array));expect(mockRecalculateAccountBalances).toHaveBeenCalled();});test('deletes and recalculates',async()=>{await deleteTransaction('tx-1');expect(mockExecute).toHaveBeenCalledWith('DELETE FROM transactions WHERE id=?',['tx-1']);expect(mockRecalculateAccountBalances).toHaveBeenCalled();});test('rejects invalid transfer',async()=>{await expect(createTransaction({...base,type:'transfer',toAccountId:'acc-1'})).rejects.toThrow(/different destination/i);});});
